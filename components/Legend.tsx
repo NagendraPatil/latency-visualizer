@@ -1,7 +1,6 @@
 "use client";
 
 import React, { memo } from "react";
-import LatencyLegend from "./LatencyLegend";
 
 const Legend: React.FC = () => (
   <aside className="z-50 bg-white dark:bg-gray-800 shadow-lg rounded-lg w-40 md:w-64 lg:w-50 backdrop-blur-md flex flex-col p-4 ml-auto">
@@ -31,10 +30,6 @@ const Legend: React.FC = () => (
         <span className="text-gray-700 dark:text-gray-300">Azure</span>
       </li>
     </ul>
-
-    <div className="mt-4">
-      <LatencyLegend />
-    </div>
   </aside>
 );
 

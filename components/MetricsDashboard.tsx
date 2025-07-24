@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import { ServerData } from "../types";
+import ExportButton from "./ExportButton";
 
 type Props = {
   servers: ServerData[];
@@ -28,7 +29,7 @@ const MetricsDashboard: React.FC<Props> = ({ servers }) => {
   }, [servers]);
 
   return (
-    <div className="fixed bottom-4 right-4 bg-white dark:bg-gray-900 bg-opacity-90 backdrop-blur-lg text-gray-800 dark:text-gray-200 p-4 rounded-xl shadow-lg w-72 md:w-80 lg:w-96 z-50">
+    <div className="fixed bottom-4 right-4 bg-white dark:bg-gray-900 bg-opacity-90 backdrop-blur-lg text-gray-800 dark:text-gray-200 p-4 rounded-xl shadow-lg w-60 md:w-80 lg:w-90 z-50">
       <h2 className="text-base md:text-lg font-bold mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
         System Metrics
       </h2>
@@ -53,6 +54,7 @@ const MetricsDashboard: React.FC<Props> = ({ servers }) => {
             ))}
           </ul>
         </div>
+        <ExportButton data={servers} />
       </div>
     </div>
   );

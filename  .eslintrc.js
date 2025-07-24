@@ -18,4 +18,14 @@ module.exports = {
     ],
     "prettier/prettier": ["error"],
   },
+  ignores: [
+    "node_modules",
+    "dist",
+    "build",
+    ".next",
+    "coverage",
+    "public/static",
+    "public/assets",
+    "public/favicon.ico",
+  ],
 };

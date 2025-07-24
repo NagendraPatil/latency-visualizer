@@ -9,6 +9,7 @@ import { disconnectSocket } from "../lib/websocket";
 import Legend from "@/components/Legend";
 import LatencyChart from "@/components/LatencyChart";
 import { ServerData } from "@/types";
+import LatencyLegend from "@/components/LatencyLegend";
 
 const GlobeComponent = dynamic(() => import("../components/GlobeComponent"), {
   ssr: false,
@@ -80,7 +81,8 @@ export default function HomePage() {
       </div>
       <div className="flex flex-col relative w-full h-full lg:w-1/3 xl:w-1/4 items-end justify-items-end justify-end">
         <LatencyChart server={selectedServer} />
-        <div className="w-full h-full mt-4">
+        <div className="w-full h-full mt-4 flex items-left justify-start">
+          <LatencyLegend />
           <Legend />
         </div>
       </div>
