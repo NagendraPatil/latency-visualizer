@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Latency Visualizer
 
-## Getting Started
+### 🌐 **Overview**
 
-First, run the development server:
+This project visualizes real-time and historical latency data of exchange servers across cloud providers (AWS, GCP, Azure) on an interactive 3D globe.
+
+---
+
+## ⚙️ **Key Features**
+
+✅ **3D Globe** with exchange server locations and latency arcs
+✅ **Real-time updates** via Socket.IO
+✅ **Historical latency charts** using Recharts
+✅ **Provider and latency filters**
+✅ **Search exchanges** and camera focus
+✅ **Responsive and user-friendly UI** with Tailwind CSS
+✅ **Performance metrics dashboard**
+
+---
+
+## 🏗️ **Tech Stack & Libraries Used**
+
+| **Library/Framework** | **Purpose**                          |
+| --------------------- | ------------------------------------ |
+| Next.js               | React framework for SSR & routing    |
+| React                 | Core library                         |
+| Tailwind CSS          | Styling and responsive design        |
+| three.js              | 3D rendering engine                  |
+| react-three-fiber     | React renderer for three.js          |
+| three-globe           | Globe visualizations                 |
+| @react-three/drei     | Useful helpers for react-three-fiber |
+| Recharts              | Data visualization charts            |
+| Socket.IO Client      | Real-time websocket communication    |
+| axios                 | HTTP requests                        |
+
+---
+
+## 🗂️ **Project Structure Summary**
+
+- `components/`
+  - `GlobeComponent.tsx`: Renders canvas, globe scene, camera controls, toggles.
+  - `GlobeScene.tsx`: Initializes three-globe instance, updates layers.
+  - `LatencyChart.tsx`: Shows historical latency using Recharts.
+  - `Legend.tsx` & `LatencyLegend.tsx`: Visual legends for latency & providers.
+  - `MetricsDashboard.tsx`: Displays system metrics.
+  - `Sidebar.tsx`: Provider & latency filters.
+
+- `pages/`
+  - `index.tsx`: Home page with main layout, data fetching, sockets.
+
+- `lib/`
+  - `websocket.ts`: Socket disconnect helper.
+
+- `types/`
+  - `index.ts`: TypeScript types for server data.
+
+- `public/`
+  - Textures for earth rendering.
+
+---
+
+## 🖥️ **Local Development Setup**
+
+### ⚡ **Prerequisites**
+
+- **Node.js** (v16 or above recommended)
+- **npm** or **yarn**
+
+### 💻 **Steps to Run Locally**
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/yourusername/latency-visualizer.git
+cd latency-visualizer
+```
+
+2. **Install dependencies**
+
+Using npm:
+
+```bash
+npm install
+```
+
+Or using yarn:
+
+```bash
+yarn install
+```
+
+3. **Set up environment variables**
+
+you can set up the below or use the mock-server folder given in the root directory to run a local server. For the development and demo purposes, I am using the server from mock-server, since I could not find any free servers for the purpose.(please go to to mock-server folder and run commands 'npm i' and 'node index.js' to run server locally in a different terminal)
+
+OR
+
+Create a `.env.local` file in the root:
+
+```
+NEXT_PUBLIC_SOCKET_URL=ws://localhost:4000
+```
+
+_(Replace with your backend WebSocket URL)_
+
+4. **Start the development server**
+
+Using npm:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or using yarn:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Visit in browser**
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 **Notes**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Ensure your backend WebSocket server is running on the URL specified in `.env.local`.
+- The app uses **dynamic imports** for `three-globe` to ensure server-side rendering compatibility in Next.js.
+- Tailwind CSS classes are used extensively for layout and responsiveness. Customize further in `globals.css` or Tailwind config as needed.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🙏 **Acknowledgements**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [three-globe](https://github.com/vasturiano/three-globe) for the excellent globe visualization library.
+- [react-three-fiber](https://github.com/pmndrs/react-three-fiber) for making three.js easier in React.
+- [Recharts](https://recharts.org) for simple and flexible charts.
+
+---
+
+## 👨‍💻 **Author**
+
+> Developed by **Nagendra Patil**.
+
+---
+
+This README serves as a comprehensive documentation for onboarding, development, and understanding of your **Latency Visualizer** application.
+
+---
+
+**Thank You for reading to the end 😁😇**
