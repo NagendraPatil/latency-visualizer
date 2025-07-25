@@ -2,10 +2,6 @@ import { io, Socket } from "socket.io-client";
 
 let socket: Socket | null = null;
 
-/**
- * Connect to WebSocket server
- * @param url WebSocket server URL
- */
 export const connectSocket = (url: string) => {
   if (!socket) {
     socket = io(url, {
@@ -28,10 +24,6 @@ export const connectSocket = (url: string) => {
   }
 };
 
-/**
- * Subscribe to latency updates
- * @param callback Function to handle incoming latency data
- */
 export const subscribeToLatency = (callback: (data: unknown) => void) => {
   if (!socket) {
     console.warn("Socket not initialized. Call connectSocket first.");
@@ -40,9 +32,6 @@ export const subscribeToLatency = (callback: (data: unknown) => void) => {
   socket.on("latencyUpdate", callback);
 };
 
-/**
- * Disconnect WebSocket
- */
 export const disconnectSocket = () => {
   if (socket) {
     socket.disconnect();

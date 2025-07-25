@@ -62,5 +62,20 @@ export async function GET() {
         { timestamp: "09:03", latency: 18 },
       ],
     },
+    {
+      lat: 85.6895,
+      lng: 37.6917,
+      exchange: "Coinbase",
+      provider: "AWS",
+      latency: 18,
+      destinationLat: 82.7749,
+      destinationLng: 23.4194,
+      history: [
+        { timestamp: "01:00", latency: 17 },
+        { timestamp: "02:01", latency: 18 },
+        { timestamp: "03:02", latency: 19 },
+        { timestamp: "04:03", latency: 18 },
+      ],
+    },
   ]);
 }

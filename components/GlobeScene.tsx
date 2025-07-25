@@ -125,7 +125,7 @@ const GlobeScene: React.FC<Props> = ({
     }
   }, [gl.domElement, handleClick, globeRef]);
 
-  // 🔄 Update globe layers when toggles change
+  //Update globe layers when toggles change
   useEffect(() => {
     if (!globeInstance.current) return;
 

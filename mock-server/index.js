@@ -10,7 +10,7 @@ console.log("Mock WebSocket server running on ws://localhost:4000");
 
 setInterval(() => {
   const latency = Math.floor(Math.random() * 100);
-  const exchangeList = ["Binance", "Bybit"];
+  const exchangeList = ["Binance", "Bybit", "Coinbase"];
   const randomExchange =
     exchangeList[Math.floor(Math.random() * exchangeList.length)];
 

@@ -32,7 +32,7 @@ export async function GET(req: { url: string | URL }) {
   // Generate mock latency data points for this specific server
   const now = Date.now();
   const data = Array.from({ length: points }, (_, i) => ({
-    server, // include server in response for clarity
+    server,
     timestamp: now - i * intervalMs,
     latency: Math.floor(Math.random() * 100) + 10, // latency between 10-110ms
   })).reverse();

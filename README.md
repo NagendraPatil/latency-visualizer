@@ -43,10 +43,11 @@ This project visualizes real-time and historical latency data of exchange server
   - `LatencyChart.tsx`: Shows historical latency using Recharts.
   - `Legend.tsx` & `LatencyLegend.tsx`: Visual legends for latency & providers.
   - `MetricsDashboard.tsx`: Displays system metrics.
+  - `ExportButton.tsx`: Buttons to export dashboard data to JSON and CSV.
   - `Sidebar.tsx`: Provider & latency filters.
 
-- `pages/`
-  - `index.tsx`: Home page with main layout, data fetching, sockets.
+- `app/`
+  - `page.tsx` & `layout.tsx`: Home page with main layout, data fetching, sockets.
 
 - `lib/`
   - `websocket.ts`: Socket disconnect helper.
