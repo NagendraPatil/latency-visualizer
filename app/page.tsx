@@ -24,12 +24,18 @@ export default function HomePage() {
     const fetchLatencyData = async () => {
       try {
         const res = await axios.get("/api/latency");
-        const cleanedData: ServerData[] = res.data.map((d: unknown) => ({
-          ...d,
-          provider: d.provider || "Unknown",
-          destinationLat: d.destinationLat || null,
-          destinationLng: d.destinationLng || null,
-        }));
+        const cleanedData: ServerData[] = res.data.map(
+          (d: {
+            provider: string;
+            destinationLat: string;
+            destinationLng: string;
+          }) => ({
+            ...d,
+            provider: d.provider || "Unknown",
+            destinationLat: d.destinationLat || null,
+            destinationLng: d.destinationLng || null,
+          })
+        );
         setServers(cleanedData);
       } catch (error) {
         console.error("Failed to fetch latency data:", error);

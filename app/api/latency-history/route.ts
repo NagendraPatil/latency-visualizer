@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
-export async function GET(req: { url: string | URL }) {
-  const { searchParams } = new URL(req.url);
+export async function GET(request: Request) {
+  const { url } = request;
+  const { searchParams } = new URL(url);
   const range = searchParams.get("range") || "1h";
   const server = searchParams.get("server") || "default-server";
 
